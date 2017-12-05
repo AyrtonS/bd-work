@@ -17,9 +17,11 @@ public class StudentRepository implements StudentInterface {
 	public void addStudent(Student student) {
 		// TODO Auto-generated method stub
 
-		String sql = "INSERT INTO aluno(matricula,nome,email,telefone,data_nas,sexo) " + "VALUES ("
-				+ student.getMatricula() + ",'" + student.getNome() + "','" + student.getEmail() + "','"
-				+ student.getTelefone() + "'," + student.getDataNascimento() + ",'" + student.getSexo() + "')";
+		String sql = "INSERT INTO aluno(matricula,nome,email,telefone,data_nas,sexo) "
+				+ "VALUES ("+ student.getMatricula() + ","
+						+ "'" + student.getNome() + "',"
+						+ "'" + student.getEmail() + "',"
+								+ "'"+ student.getTelefone() + "','" + student.getDataNascimento() + "','" + student.getSexo() + "')";
 
 		try {
 			Connection connection = ConnectionDatabase.getConnection();

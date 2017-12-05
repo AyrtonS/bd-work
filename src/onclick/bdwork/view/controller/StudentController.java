@@ -1,5 +1,6 @@
 package onclick.bdwork.view.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +24,12 @@ public class StudentController {
 			student.setTelefone(request.getParameter("telefone"));
 			student.setSexo(request.getParameter("sexo"));
 
-			@SuppressWarnings("deprecation")
-			Date date = new Date(request.getParameter("data"));
+			String dado = request.getParameter("data");
+			
+					new SimpleDateFormat("dd/MM/yyyy")
+					.format(new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy"));
+			
+			Date date = dado.parse();
 			student.setDataNascimento(date);
 
 			studentService.addStudent(student);

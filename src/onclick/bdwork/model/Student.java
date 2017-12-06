@@ -1,5 +1,6 @@
 package onclick.bdwork.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Student {
@@ -8,7 +9,7 @@ public class Student {
 	private String nome;
 	private String email;
 	private String telefone;
-	private Date dataNascimento;
+	private Calendar dataNascimento;
 	private String sexo;
 
 	public int getMatricula() {
@@ -43,11 +44,11 @@ public class Student {
 		this.telefone = telefone;
 	}
 
-	public Date getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

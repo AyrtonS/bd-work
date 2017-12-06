@@ -29,4 +29,9 @@ public class StudentService implements StudentInterface{
 		return studentRepository.getStudents();
 	}
 
+	public List<Student> getStudent(String parameter) {
+		return studentRepository.getStudent(parameter);
+		
+	}
+
 }

@@ -44,9 +44,11 @@ $(document).ready(function() {
     <li><a href="#!">ufccrateus@ufc.br</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">MENU</a></li>
-    <li><a class="waves-effect" href="#!">Alunos</a></li>
-    <li><a class="waves-effect" href="#!">Disciplinas</a></li>
-    <li><a class="waves-effect" href="#!">Sair</a></li>
+    <li><a class="waves-effect" href="index.jsp">Alunos</a></li>
+    <li><a class="waves-effect" href="disciplinas.jsp">Disciplinas</a></li>
+     <li><a class="waves-effect" href="matricula.jsp">Matricula</a></li>
+      <li><a class="waves-effect" href="#!">Gerar Histórico</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sair</a></li>
  
   </ul>
   <a href="#" data-activates="slide-out" class="button-collapse"  style="float:right;font-size: 30px;color: #000;"><i class="material-icons left"  style="font-size: 46px;">menu</i></a>

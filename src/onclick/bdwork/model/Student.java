@@ -11,7 +11,7 @@ public class Student {
 	private String telefone;
 	private Calendar dataNascimento;
 	private String sexo;
-
+	
 	public int getMatricula() {
 		return matricula;
 	}

@@ -1,8 +1,11 @@
 package onclick.bdwork.view.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import onclick.bdwork.model.SchoolRecord;
 import onclick.bdwork.model.StudentDisciplineCrossed;
 import onclick.bdwork.service.MatriculaService;
 
@@ -14,8 +17,7 @@ public class MatriculaController {
 
 		try {
 
-			int codigo = Integer.parseInt(request.getParameter("codigo"));
-			int credito = Integer.parseInt(request.getParameter("credito"));
+			int codigo = Integer.parseInt(request.getParameter("codDisciplina"));
 			String periodo = request.getParameter("periodo");
 			int frequencia = Integer.parseInt(request.getParameter("frequencia"));
 			double nota = Double.parseDouble(request.getParameter("nota"));
@@ -26,14 +28,37 @@ public class MatriculaController {
 			studentDisciplineCrossed.setFrequencia(frequencia);
 			studentDisciplineCrossed.setPeriodo(periodo);
 			studentDisciplineCrossed.setMatriculaAluno(matricula);
+			studentDisciplineCrossed.setNota(nota);
 
 			matriculaService.addMatricula(studentDisciplineCrossed);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-		
+
 		return false;
 	}
+
+	public static List<SchoolRecord> getSchoolRecord(HttpServletRequest request, HttpServletResponse response) {
+
+		int matricula = Integer.parseInt(request.getParameter("lookout"));
+		return matriculaService.getSchoolRecord(matricula);
+
+	}
+
+	public static List<SchoolRecord> getStudentDetailsOnDiscipline(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		String disciplina = request.getParameter("disciplina");
+		String periodo = request.getParameter("periodo");
+		return matriculaService.getStudentByDisciplineAndPeriod(disciplina, periodo);
+
+	}
+	
+	public static List<StudentDisciplineCrossed> getPeriods(){
+		return matriculaService.getPeriods();
+	}
+	
+	
 
 }

@@ -13,7 +13,7 @@ import onclick.bdwork.view.controller.MatriculaController;
 /**
  * Servlet implementation class StudentDisciplineServlet
  */
-@WebServlet("/StudentDisciplineServlet")
+@WebServlet("/studentDiscipline")
 public class StudentDisciplineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

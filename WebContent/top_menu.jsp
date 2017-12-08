@@ -45,9 +45,11 @@ $(document).ready(function() {
     <li><div class="divider"></div></li>
     <li><a class="subheader">MENU</a></li>
     <li><a class="waves-effect" href="index.jsp">Alunos</a></li>
+    <li><a class="waves-effect" href="cadastro-aluno.jsp">Cadastrar Alunos</a></li>
     <li><a class="waves-effect" href="disciplinas.jsp">Disciplinas</a></li>
+    <li><a class="waves-effect" href="cadastro-disciplina.jsp">Cadastrar Disciplinas</a></li>
      <li><a class="waves-effect" href="matricula.jsp">Matricula</a></li>
-      <li><a class="waves-effect" href="#!">Gerar Histórico</a></li>
+      <li><a class="waves-effect" href="historico.jsp">Gerar Histórico</a></li>
     <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sair</a></li>
  
   </ul>

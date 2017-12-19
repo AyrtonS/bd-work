@@ -23,8 +23,8 @@ $(document).ready(function() {
 
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Poiret+One" rel="stylesheet"> 
+<link rel="stylesheet" href="css/style.css" >
 </head>
 <body>
 
@@ -36,27 +36,28 @@ $(document).ready(function() {
       <div class="background">
         <img src="images/office.jpg">
       </div>
-      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#!user"><img class="circle" src="http://static.cdn.ea.com/battlelog/prod/emblems/320/665/bf3/2832655391943438665.jpeg?v=1364759635"></a>
       <a href="#!name"><span class="white-text name">SysAcademic</span></a>
-      <a href="#!email"><span class="white-text email">ufccrateus@ufc.br</span></a>
+      <a href="#!email"><span class="white-text email">sysacademic@ufc.com</span></a>
     </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>SysAcademic</a></li>
+    <li><a href="#!"><i class="material-icons">settings</i>SysAcademic</a></li>
     <li><a href="#!">ufccrateus@ufc.br</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">MENU</a></li>
-    <li><a class="waves-effect" href="index.jsp">Alunos</a></li>
-    <li><a class="waves-effect" href="cadastro-aluno.jsp">Cadastrar Alunos</a></li>
-    <li><a class="waves-effect" href="disciplinas.jsp">Disciplinas</a></li>
-    <li><a class="waves-effect" href="cadastro-disciplina.jsp">Cadastrar Disciplinas</a></li>
-     <li><a class="waves-effect" href="matricula.jsp">Matricula</a></li>
+     <li><a class="waves-effect" href="cadastro-aluno.jsp"><i class="material-icons left">account_box</i>Cadastrar Alunos</a></li>
+      <li><a class="waves-effect" href="cadastro-disciplina.jsp"><i class="material-icons left">note_add</i>Cadastrar Disciplinas</a></li>
+    <li><a class="waves-effect" href="index.jsp"><i class="material-icons left">school</i>Alunos</a></li>
+    <li><a class="waves-effect" href="disciplinas.jsp"><i class="material-icons left">book</i>Disciplinas</a></li>
+     <li><a class="waves-effect" href="matricula.jsp"><i class="material-icons left">toc</i>Matricula</a></li>
+     <li><a class="waves-effect" href="check-discipline.jsp">Verificar Alunos</a></li>
       <li><a class="waves-effect" href="historico.jsp">Gerar Histórico</a></li>
     <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sair</a></li>
  
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"  style="float:right;font-size: 30px;color: #000;"><i class="material-icons left"  style="font-size: 46px;">menu</i></a>
-  <h3>SysAcademic</h3>      
+  <a href="#" data-activates="slide-out" class="button-collapse"  style="font-size: 30px;color: #000;"><i class="material-icons left"  style="font-size: 46px;">menu</i></a>
+  <h3>Menu</h3>      
 	
-
+<hr>
 
 </body>
 </html>

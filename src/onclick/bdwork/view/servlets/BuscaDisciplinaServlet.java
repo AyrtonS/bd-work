@@ -35,6 +35,7 @@ public class BuscaDisciplinaServlet extends HttpServlet {
 			}else{
 				request.setAttribute("message", "Busca efetuada com sucesso");
 			}
+			
 			request.getRequestDispatcher("searchDisciplina.jsp").forward(request, response);
 			
 	}

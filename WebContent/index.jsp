@@ -21,7 +21,7 @@
 		<c:out value="${message}" />
 	</c:if>
 
-	<hr />
+	
 
 	<div class="container">
 		<div class="row">

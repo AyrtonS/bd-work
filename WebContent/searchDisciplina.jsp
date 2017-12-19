@@ -17,9 +17,13 @@
 <jsp:include page="top_menu.jsp" />
 
 
+<hr />
 <c:if test="${not empty message}">
 		<c:out value="${message}" />
 	</c:if>
+	
+	
+	
 <h3>Resultado da busca </h3>
 
 	<div class="container">
@@ -27,12 +31,10 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Matricula</th>
+					<th>Código</th>
 					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Data de Nascimento</th>
-					<th>Telefone</th>
-					<th>Sexo</th>
+					<th>Crédito</th>
+
 				</tr>
 			</thead>
 
@@ -43,7 +45,7 @@
 					%>
 					<p>
 						Não existem registros no banco de dados.<a
-							href="cadastro-aluno.jsp">Cadastre o primeiro </a>
+							href="cadastro-disciplina.jsp">Cadastre o primeiro </a>
 					</p>
 
 					<%
@@ -75,7 +77,7 @@
 								<i class="material-icons center">edit</i>
 							</button>
 				</form>
-				<form action="deleteDiscipline" method="post">
+				<form action="deleteDisciplina" method="get">
 					<input name="codigo" type="hidden"
 						value="<%=discipline.getCodigo()%>">
 					<button type="submit" class="btn red white-text">

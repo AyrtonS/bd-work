@@ -41,7 +41,7 @@ public class MatriculaController {
 
 	public static List<SchoolRecord> getSchoolRecord(HttpServletRequest request, HttpServletResponse response) {
 		
-		if(request.getParameter("lookout")!=null){
+		if(request.getParameter("lookout")!=null && !request.getParameter("lookout").equals("")){
 			int matricula = Integer.parseInt(request.getParameter("lookout"));
 			
 			return matriculaService.getSchoolRecord(matricula);

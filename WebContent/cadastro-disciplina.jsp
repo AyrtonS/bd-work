@@ -16,21 +16,55 @@
 	</c:if>
 
 <div class="container">
+<h3>Cadastrar Disciplina</h3>
 <form method="post" action="addDisciplina">
 		<%if(request.getParameter("codigo")!=null){ %>
-		<input name="codigo" type="text" placeholder="matricula" value="<%=request.getParameter("codigo") %>" /> 
-		<input name="nome" type="text" placeholder="nome" value="<%=request.getParameter("nome") %>"/> 
-			<input name="credito" type="number" placeholder="Credito" value="<%=request.getParameter("credito") %>" /> 
+		
+		
+		<div class="row">
+				<div class="col s12 input-field">
+					<label for="codigo">Digite o código da Disciplina EX:1331</label>
+					<input id="codigo" name="codigo" type="text" placeholder="Codigo" value="<%=request.getParameter("codigo") %>"/> 
+				</div>
+				<div class="col s12 input-field">
+					<label for="nome">Digite o nome da Disciplina EX:Banco de dados</label>
+					<input id="nome" name="nome" type="text" placeholder="nome" value="<%=request.getParameter("nome") %>"/> 
+				</div>
+				<div class="col s12 input-field">
+					<label for="credito">Digite os créditos da Disciplina EX:64</label>
+					<input id="credito" name="credito" type="number" placeholder="Credito" value="<%=request.getParameter("credito") %>"/> 
+				</div>
+			
+					
 		<input type="hidden" name="button_type" value="1" />
 		<button type="submit" class="btn yellow black-text" >Atualizar</button>	
+			</div>
+		
+	
 		
 		<%}else{
 			%>
-			<input name="codigo" type="text" placeholder="matricula" /> 
-			<input name="nome" type="text" placeholder="nome" /> 
-			<input name="credito" type="number" placeholder="Credito" /> 
+			<div class="row">
+				<div class="col s12 input-field">
+					<label for="codigo">Digite o código da Disciplina EX:1331</label>
+					<input id="codigo" name="codigo" type="text" placeholder="Codigo" /> 
+				</div>
+				<div class="col s12 input-field">
+					<label for="nome">Digite o nome da Disciplina EX:Banco de dados</label>
+					<input id="nome" name="nome" type="text" placeholder="nome" /> 
+				</div>
+				<div class="col s12 input-field">
+					<label for="credito">Digite os créditos da Disciplina EX:64</label>
+					<input id="credito" name="credito" type="number" placeholder="Credito" /> 
+				</div>
+			
 			<input type="hidden" name="button_type" value="0" />
 			<button type="submit" class="btn black white-text" >Adicionar</button>	
+			</div>
+			
+			
+			
+
 			<%
 			
 		} %>

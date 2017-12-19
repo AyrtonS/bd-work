@@ -61,7 +61,7 @@
 					%>
 					<p>
 						Não existem registros no banco de dados.<a
-							href="cadastro-aluno.jsp">Cadastre o primeiro aluno</a>
+							href="cadastro-disciplina.jsp">Cadastre o primeira</a>
 					</p>
 
 					<%

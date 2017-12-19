@@ -11,13 +11,13 @@ import onclick.bdwork.database.ConnectionDatabase;
 import onclick.bdwork.model.Discipline;
 import onclick.bdwork.view.interfaces.DisciplineInteface;
 
-public class DisciplinaRepository implements DisciplineInteface{
+public class DisciplinaRepository implements DisciplineInteface {
 
 	@Override
 	public void addDiscipline(Discipline discipline) {
 
-		String sql = "INSERT INTO disciplina(codigo,nome,creditos) " + "VALUES ("
-				+ discipline.getCodigo() + ",'" + discipline.getNome() + "','" + discipline.getCredito() + "')";
+		String sql = "INSERT INTO disciplina(codigo,nome,creditos) " + "VALUES (" + discipline.getCodigo() + ",'"
+				+ discipline.getNome() + "','" + discipline.getCredito() + "')";
 
 		try {
 			Connection connection = ConnectionDatabase.getConnection();
@@ -28,37 +28,39 @@ public class DisciplinaRepository implements DisciplineInteface{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
 	public void updateDiscipline(Discipline discipline) {
-		
-		String sql = "UPDATE disciplina SET " 
-				+ "codigo =" + discipline.getCodigo() 
-				+ ", nome = '" + discipline.getNome()
-				+ "', creditos = " + discipline.getCredito()+" WHERE codigo = "+discipline.getCodigo();
 
-				try {
-					Connection connection = ConnectionDatabase.getConnection();
-					Statement stmt = connection.createStatement();
-					stmt.executeUpdate(sql);
+		String sql = "UPDATE disciplina SET " + "codigo =" + discipline.getCodigo() + ", nome = '"
+				+ discipline.getNome() + "', creditos = " + discipline.getCredito() + " WHERE codigo = "
+				+ discipline.getCodigo();
 
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		
+		try {
+			Connection connection = ConnectionDatabase.getConnection();
+			Statement stmt = connection.createStatement();
+			stmt.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
 	public void removeDiscipline(Discipline discipline) {
-		
+
+		String sqlFK = "DELETE FROM aluno_disciplina WHERE disciplina_codigo = " + discipline.getCodigo();
+
 		String sql = "DELETE FROM disciplina WHERE codigo = " + discipline.getCodigo();
 
 		try {
 			Connection connection = ConnectionDatabase.getConnection();
 			Statement stmt = connection.createStatement();
+			stmt.execute(sqlFK);
 			stmt.execute(sql);
 
 		} catch (SQLException e) {
@@ -66,7 +68,6 @@ public class DisciplinaRepository implements DisciplineInteface{
 			e.printStackTrace();
 		}
 
-		
 	}
 
 	@Override
@@ -85,11 +86,11 @@ public class DisciplinaRepository implements DisciplineInteface{
 				discipline.setCodigo(rs.getInt("codigo"));
 				discipline.setNome(rs.getString("nome"));
 				discipline.setCredito(rs.getInt("creditos"));
-				
+
 				disciplines.add(discipline);
-				
+
 			}
-			
+
 			System.out.println(disciplines);
 			return disciplines;
 
@@ -102,37 +103,34 @@ public class DisciplinaRepository implements DisciplineInteface{
 
 	@Override
 	public List<Discipline> getDisciplineByName(String name) {
-		
-		String sql = "SELECT * FROM disciplina WHERE nome LIKE '%"+name+"%'";
-		
+
+		System.out.println("--------------- " + name);
+		String sql = "SELECT * FROM disciplina WHERE nome LIKE '%" + name + "%'";
+
 		try {
-			
+
 			Connection conn = ConnectionDatabase.getConnection();
 			Statement stmt = conn.createStatement();
-			
+
 			ResultSet rs = stmt.executeQuery(sql);
 			List<Discipline> disciplinas = new ArrayList<>();
-			
+
 			Discipline discipline = null;
-			while(rs.next()){
+			while (rs.next()) {
 				discipline = new Discipline();
 				discipline.setCodigo(rs.getInt("codigo"));
-				discipline.setCredito(rs.getInt("credito"));
+				discipline.setCredito(rs.getInt("creditos"));
 				discipline.setNome(rs.getString("nome"));
 				disciplinas.add(discipline);
 			}
-			
+
 			return disciplinas;
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 		return null;
 	}
 

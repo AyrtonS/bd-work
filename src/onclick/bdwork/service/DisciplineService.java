@@ -34,4 +34,9 @@ public class DisciplineService implements DisciplineInteface{
 		return disciplinaRepository.getDisciplines();
 	}
 
+	@Override
+	public List<Discipline> getDisciplineByName(String name) {
+		return disciplinaRepository.getDisciplineByName(name);
+	}
+
 }

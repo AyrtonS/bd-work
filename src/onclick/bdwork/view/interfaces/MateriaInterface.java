@@ -13,6 +13,6 @@ public interface MateriaInterface {
 	public void updateMatricula(StudentDisciplineCrossed studentDisciplineCrossed);
 	public void removeMatricula(StudentDisciplineCrossed studentDisciplineCrossed);
 	public List<SchoolRecord> getSchoolRecord(int matricula);
-	public List<SchoolRecord> getStudentByDisciplineAndPeriod(String discipline, String periodo);
+	public List<SchoolRecord> getStudentByDisciplineAndPeriod(int discipline, String periodo);
 	public List<StudentDisciplineCrossed> getPeriods();
 }

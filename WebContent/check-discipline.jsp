@@ -27,12 +27,12 @@
 <div class="col s3 input-field">
 	<select name="disciplina">
 		<% for(Discipline discipline : DisciplineController.getDisciplines() ){ %>
-		<option value="<%=discipline.getNome()%>"><%=discipline.getNome()%></option>
+		<option value="<%=discipline.getCodigo()%>"><%=discipline.getNome()%></option>
 		<%} %>
 	</select>
 </div>
 <div class="col s3 input-field">
-	<select name="disciplina">
+	<select name="periodo">
 		<% for(StudentDisciplineCrossed studentDisciplineCrossed : MatriculaController.getPeriods() ){ %>
 		<option value="<%=studentDisciplineCrossed.getPeriodo()%>"><%=studentDisciplineCrossed.getPeriodo()%></option>
 		<%} %>

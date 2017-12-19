@@ -1,5 +1,6 @@
 package onclick.bdwork.view.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import onclick.bdwork.service.DisciplineService;
 public class DisciplineController {
 
 	private static DisciplineService disciplineService = new DisciplineService();
+	private static List<Discipline> disciplinesSelected;
 
 	public static boolean addDiscipline(HttpServletRequest request, HttpServletResponse response) {
 
@@ -18,10 +20,10 @@ public class DisciplineController {
 		discipline.setCodigo(Integer.parseInt(request.getParameter("codigo")));
 		discipline.setCredito(Integer.parseInt(request.getParameter("credito")));
 		discipline.setNome(request.getParameter("nome"));
-		
+
 		try {
 			disciplineService.addDiscipline(discipline);
-			
+
 			if (request.getParameter("button_type").equals("0")) {
 				System.out.println("Opa entrou  0");
 				disciplineService.addDiscipline(discipline);
@@ -29,8 +31,7 @@ public class DisciplineController {
 				System.out.println("Opa entrou  1");
 				disciplineService.updateDiscipline(discipline);
 			}
-			
-			
+
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,21 +39,35 @@ public class DisciplineController {
 		}
 
 	}
-	
-	
-	public static List<Discipline> getDisciplines(){
+
+	public static List<Discipline> getDisciplines() {
 		return disciplineService.getDisciplines();
 	}
 
-
 	public static boolean deleteDiscipline(Discipline discipline) {
-		try{	
+		try {
 			disciplineService.removeDiscipline(discipline);
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			return false;
 		}
-			
+
+	}
+
+	public static boolean searchDiscipline(String search) {
+
+		disciplinesSelected = disciplineService.getDisciplineByName(search);
+		if (disciplinesSelected != null)
+			return true;
+
+		return false;
+
+	}
+
+	public static List<Discipline> getDisciplinesByName() {
+
+		return disciplinesSelected;
+
 	}
 
 }

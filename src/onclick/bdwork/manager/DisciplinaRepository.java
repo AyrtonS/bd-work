@@ -9,7 +9,6 @@ import java.util.List;
 
 import onclick.bdwork.database.ConnectionDatabase;
 import onclick.bdwork.model.Discipline;
-import onclick.bdwork.model.Student;
 import onclick.bdwork.view.interfaces.DisciplineInteface;
 
 public class DisciplinaRepository implements DisciplineInteface{
@@ -99,6 +98,42 @@ public class DisciplinaRepository implements DisciplineInteface{
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public List<Discipline> getDisciplineByName(String name) {
+		
+		String sql = "SELECT * FROM disciplina WHERE nome LIKE '%"+name+"%'";
+		
+		try {
+			
+			Connection conn = ConnectionDatabase.getConnection();
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			List<Discipline> disciplinas = new ArrayList<>();
+			
+			Discipline discipline = null;
+			while(rs.next()){
+				discipline = new Discipline();
+				discipline.setCodigo(rs.getInt("codigo"));
+				discipline.setCredito(rs.getInt("credito"));
+				discipline.setNome(rs.getString("nome"));
+				disciplinas.add(discipline);
+			}
+			
+			return disciplinas;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return null;
 	}
 
 }

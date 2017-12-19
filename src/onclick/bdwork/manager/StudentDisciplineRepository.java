@@ -100,11 +100,9 @@ public class StudentDisciplineRepository implements MateriaInterface {
 	}
 
 	@Override
-	public List<SchoolRecord> getStudentByDisciplineAndPeriod(String discipline, String periodo) {
-		
-		String sql = "SELECT a.nome,sd.nota,sd.frequencia FROM aluno a JOIN aluno_disciplina sd "
-				+ "ON (a.matricula = sd.aluno_matr) JOIN disciplina d "
-				+ "ON (sd.disciplina_codigo = d.codigo AND d.nome ='"+discipline+"' and sd.periodo = '"+periodo+"')";
+	public List<SchoolRecord> getStudentByDisciplineAndPeriod(int discipline, String periodo) {
+		System.out.println("VIGAAAH"+periodo);
+		String sql = "SELECT a.nome,sd.periodo,sd.nota,sd.frequencia FROM aluno a JOIN aluno_disciplina sd ON (a.matricula = sd.aluno_matr) JOIN disciplina d ON (sd.disciplina_codigo = "+discipline+") WHERE sd.periodo ='"+periodo+"'";
 		
 		Connection conn = ConnectionDatabase.getConnection();
 		try {
@@ -119,6 +117,7 @@ public class StudentDisciplineRepository implements MateriaInterface {
 				schoolRecord.setNome(rs.getString("nome"));
 				schoolRecord.setNota(rs.getDouble("nota"));
 				schoolRecord.setFrenquencia(rs.getInt("frequencia"));
+				schoolRecord.setPeriodo(rs.getString("periodo"));
 				
 				records.add(schoolRecord);
 			}

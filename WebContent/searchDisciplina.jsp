@@ -1,8 +1,10 @@
 <%@page import="onclick.bdwork.model.Discipline"%>
 <%@page import="onclick.bdwork.view.controller.DisciplineController"%>
+<%@page import="onclick.bdwork.model.Student"%>
+<%@page import="onclick.bdwork.view.controller.StudentController"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,59 +17,39 @@
 <jsp:include page="top_menu.jsp" />
 
 
-
-<div class="container">
 <c:if test="${not empty message}">
 		<c:out value="${message}" />
 	</c:if>
+<h3>Resultado da busca </h3>
 
-
-<h3>Disciplinas</h3>
-
-	<div class="row">
-			<form action="buscaDisciplinaServlet" method="get">
-				<div class="row">
-					<div class="input-field col s3"></div>
-
-					<div class="input-field col s12">
-						<form action="search" method="get">
-						<input value="" id="first_name2" name="search" type="text"
-							class="validate"> <label class="active" for="first_name2">Digite
-							o nome da disciplina</label>
-						<button type="submit" class="btn indigo black waves-effect right">
-							<i class="material-icons">search</i>
-						</button>
-						</form>
-					</div>
-				</div>
-			</form>
-		</div>
-
-	
-		<table class="striped">
+	<div class="container">
+		
+		<table>
 			<thead>
 				<tr>
-					<th>Código</th>
+					<th>Matricula</th>
 					<th>Nome</th>
-					<th>Crédito</th>
-			
+					<th>E-mail</th>
+					<th>Data de Nascimento</th>
+					<th>Telefone</th>
+					<th>Sexo</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<form action="cadastro-disciplina.jsp" method="post">
 					<%
-						if (DisciplineController.getDisciplines().isEmpty()) {
+						if (DisciplineController.getDisciplinesByName().isEmpty() || DisciplineController.getDisciplinesByName()==null) {
 					%>
 					<p>
 						Não existem registros no banco de dados.<a
-							href="cadastro-aluno.jsp">Cadastre o primeiro aluno</a>
+							href="cadastro-aluno.jsp">Cadastre o primeiro </a>
 					</p>
 
 					<%
 						}
 
-						for (Discipline discipline : DisciplineController.getDisciplines()) {
+						for (Discipline discipline : DisciplineController.getDisciplinesByName()) {
 					%>
 
 					<tr>
@@ -76,7 +58,7 @@
  	request.setAttribute("codigo", discipline.getCodigo());
  %>
 						</td>
-						<td><%=discipline.getNome() %> <input name="nome" type="hidden"
+						<td><%=discipline.getNome()%> <input name="nome" type="hidden"
 							value="<%=discipline.getNome()%>"> <%
  	request.setAttribute("nome", discipline.getNome());
  %>
@@ -87,12 +69,13 @@
  %>
 						</td>
 					
+						
 						<td style="padding: 1%;">
 							<button type="submit" class="btn black white-text">
 								<i class="material-icons center">edit</i>
 							</button>
 				</form>
-				<form action="deleteDisciplina" method="post">
+				<form action="deleteDiscipline" method="post">
 					<input name="codigo" type="hidden"
 						value="<%=discipline.getCodigo()%>">
 					<button type="submit" class="btn red white-text">
@@ -110,9 +93,8 @@
 
 			</tbody>
 		</table>
+	</div>
 
-
-</div>
 
 </body>
 </html>

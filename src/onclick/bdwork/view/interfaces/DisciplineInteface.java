@@ -10,6 +10,6 @@ public interface DisciplineInteface {
 	public void updateDiscipline(Discipline discipline);
 	public void removeDiscipline(Discipline discipline);
 	public List<Discipline> getDisciplines();
-	
+	public List<Discipline> getDisciplineByName(String name);
 	
 }

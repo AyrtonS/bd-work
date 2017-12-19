@@ -40,7 +40,7 @@ public class MatriculaService implements MateriaInterface {
 	}
 
 	@Override
-	public List<SchoolRecord> getStudentByDisciplineAndPeriod(String discipline, String periodo) {
+	public List<SchoolRecord> getStudentByDisciplineAndPeriod(int discipline, String periodo) {
 		return studentDisciplineRepository.getStudentByDisciplineAndPeriod(discipline, periodo);
 	}
 

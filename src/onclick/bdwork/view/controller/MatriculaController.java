@@ -40,18 +40,25 @@ public class MatriculaController {
 	}
 
 	public static List<SchoolRecord> getSchoolRecord(HttpServletRequest request, HttpServletResponse response) {
-
-		int matricula = Integer.parseInt(request.getParameter("lookout"));
-		return matriculaService.getSchoolRecord(matricula);
+		
+		if(request.getParameter("lookout")!=null){
+			int matricula = Integer.parseInt(request.getParameter("lookout"));
+			
+			return matriculaService.getSchoolRecord(matricula);
+		}
+		return null;
 
 	}
 
 	public static List<SchoolRecord> getStudentDetailsOnDiscipline(HttpServletRequest request,
 			HttpServletResponse response) {
-
-		String disciplina = request.getParameter("disciplina");
-		String periodo = request.getParameter("periodo");
-		return matriculaService.getStudentByDisciplineAndPeriod(disciplina, periodo);
+		if(request.getParameter("disciplina")!=null || request.getParameter("periodo") !=null ){
+			int disciplina = Integer.parseInt(request.getParameter("disciplina"));
+			String periodo = request.getParameter("periodo");
+			return matriculaService.getStudentByDisciplineAndPeriod(disciplina, periodo);
+		}
+		
+		return null;
 
 	}
 	
